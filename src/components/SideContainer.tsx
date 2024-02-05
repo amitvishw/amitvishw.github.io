@@ -1,18 +1,13 @@
-import DownloadIcon from "../Icons/Download";
-import EmailIcon from "../Icons/Email";
-import GithubIcon from "../Icons/Github";
-import HackerRankIcon from "../Icons/HackerRank";
-import LinkedinIcon from "../Icons/Linkedin";
-import LocationIcon from "../Icons/Location";
-import PhoneIcon from "../Icons/Phone";
+import DownloadIcon from "@/Icons/Download";
+import EmailIcon from "@/Icons/Email";
+import GithubIcon from "@/Icons/Github";
+import HackerRankIcon from "@/Icons/HackerRank";
+import LinkedinIcon from "@/Icons/Linkedin";
+import LocationIcon from "@/Icons/Location";
+import PhoneIcon from "@/Icons/Phone";
+import Image from "next/image";
 
-const profileImageUrl = new URL(
-  "../assets/amit-vishwakarma-profile-picture.jpg",
-  import.meta.url,
-).href;
-
-const resumeUrl = new URL("../assets/amit_vishwakarma.pdf", import.meta.url)
-  .href;
+const resumeUrl = "/amit_vishwakarma.pdf";
 
 const profiles = [
   {
@@ -36,9 +31,11 @@ const SideContainer = () => {
   return (
     <div className="flex flex-col items-center">
       <div>
-        <img
+        <Image
+          width={500}
+          height={500}
           className="w-60 h-60 rounded-lg"
-          src={profileImageUrl}
+          src="/amit-vishwakarma-profile-picture.jpg"
           alt="Amit Vishwakarma MERN Stack Developer"
         />
       </div>
@@ -53,7 +50,7 @@ const SideContainer = () => {
         </div>
         <div className="flex justify-center gap-2 py-4 text-slate-400">
           {profiles.map((profile) => (
-            <div className="p-4 bg-slate-900 rounded-lg">
+            <div key={profile.website} className="p-4 bg-slate-900 rounded-lg">
               <div className="w-6 h-6">
                 <a
                   className="hover:text-primary duration-200"
